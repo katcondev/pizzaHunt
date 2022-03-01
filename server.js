@@ -11,9 +11,13 @@ app.use(require("./routes"));
 
 mongoose.connect(
   process.env.MOGODB_URI || "mongodb://localhost:27017/pizza-hunt",
-  {
-    useNewUrlParser: true,
-    userUnifiedTopology: true,
+  // {
+  //   useNewUrlParser: true,
+  //   userUnifiedTopology: true,
+  // }
+  (err) => {
+    if (err) throw err;
+    console.log("connected to MongoDB");
   }
 );
 
